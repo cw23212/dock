@@ -1,0 +1,10 @@
+FROM python:3.5
+
+RUN pip install Flask==1.1.2 gunicorn==20.0.4
+RUN mkdir ~/app
+WORKDIR /root/app
+
+CMD gunicorn wsgi
+EXPOSE 8000
+
+#dc run -v  ~/:/root/app -p 80:8000 abc
