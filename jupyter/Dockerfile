@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     python3-setuptools \ 
     htop \
+    vim \
+    wget \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -21,7 +23,6 @@ RUN pip3 --no-cache-dir install \
 RUN mkdir /root/work
 COPY .jupyter/ /root/.jupyter
 COPY start.sh /
-EXPOSE 8888
+EXPOSE 80
 WORKDIR /root
 CMD /start.sh
-
